@@ -24,6 +24,28 @@ repositories {
 }
 
 dependencies {
+	compileOnly("org.apache.spark:spark-sql_2.13:3.5.5")
+	{
+		exclude(group="org.slf4j")
+	}
+	implementation("org.apache.spark:spark-core_2.13:3.5.5")
+	{
+		exclude(group="org.slf4j")
+	}
+	implementation("org.apache.hadoop:hadoop-hdfs:3.4.1")
+	{
+		exclude(group="ch.qos.reload4j")
+		exclude(group="org.slf4j")
+	}
+
+	implementation("org.apache.hadoop:hadoop-client:3.4.1")
+	{
+		exclude (group="ch.qos.reload4j")
+	}
+	implementation("org.apache.hadoop:hadoop-common:3.4.1")
+	{
+		exclude (group="ch.qos.reload4j")
+	}
 	implementation("org.springframework.boot:spring-boot-starter-data-cassandra")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
